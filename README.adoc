@@ -1,0 +1,87 @@
+== edea Assignment 1 : Expenses
+
+=== Bearbeitet von
+
+* Thierry Odermatt
+
+=== Abgabe
+
+* [.line-through]#Dienstag, 15.11.2022, 8:00 Uhr#
+* Dienstag, 20.11.2022, 23:59 Uhr
+
+Die Abgabe erfolgt durch einen `Push` auf den `main`-Branch Ihres GitHub-Repositories.
+
+
+=== Initiale Schritte
+[circle]
+* Tragen Sie ihren Namen unter "Bearbeitet von" ein.
+* Pushen Sie diese Änderung am besten sofort ins Git-Repository (z.B. via "Git -> Commit… -> Commit&Push")
+
+
+=== Die Aufgabe: Desktop Applikation zum Erfassen von Spesenabrechnungen
+
+Dieses Assignment besteht aus zwei Teilen.
+[circle]
+* _Entwurf_ der Applikation, insbesondere eines angemessenen Interaction-Designs
+** dieser Teil der Aufgabe wird idealerweise in einem kleinen Team (zwei bis drei Personen) bearbeitet
+** Was ist aus ihrer Sicht ein ideales Tool für die Spesenabrechnung?
+** Welche Benutzer-Rollen gibt es bei der Spesenabrechnung?
+** Dokumentieren Sie ihren Entwurf als Balsamiq-WireFrame
+** Hinweis: Es ist *kein* HiFi-Prototyp erwünscht
+** Hinweis: Es muss *nicht* der gesamte Entwurf implementiert werden.
+* _Implementierung_ der Applikation auf Basis der im Unterricht erarbeiteten Konzepte
+** die Umsetzung des Entwurfs ist eine Einzelarbeit
+*** Möglich ist jedoch jeweils die geeignete Applikation für eine der im Entwurf identifizierten Benutzer-Rollen zu implementieren und diese unterschiedlichen Teile in einem Repository zusammenzuführen. Dabei muss jedoch klar sein, welche Teile von welcher Person implementiert wurden.
+** gegenseitiges Helfen ist nicht nur erlaubt, sondern sogar gewünscht
+** einzelne Code-Schnipsel (insbesondere Dinge, die im `xtracted`-Package liegen) können gegenseitig ausgetauscht werden. Benutzen Sie dafür das `@author`-Tag.
+
+TIP: Im File `Digitaler Spesenprozess - Erfassung für Mitarbeitende.pdf` finden Sie die Kurzanleitung für die Spesenabrechnung an der FHNW. Diese Applikation ist nahezu unbedienbar. Sie sollten daraus lediglich ablesen, was es bei einer Spesenabrechnung zu beachten gibt. Vor allem zeigt das Dokument jedoch wie Ihre Applikation *auf keinen Fall* aussehen sollte.
+
+
+=== Anforderungen
+[circle]
+* Gewünschte Funktionalität
+** Login / Registrierung mit einem frei wählbaren Benutzernamen/Passwort
+** Erfassen einer neuen Spesenabrechnung mit einem leistungsfähigen "Editor" (im Sinne des Unterrichts)
+** Übersicht über alte Spesenabrechnungen in einem "Explorer"
+** Verwendung einer (lokalen) Datenbank für die Benutzerverwaltung und die Spesenabrechnungen
+* Verwendung des im Unterricht erarbeiteten "Classic MVC"-Konzepts
+** Einsatz der im Unterricht erarbeiteten Konzepte wie z.B. Actions und Attributes
+** klare Aufgabenverteilung zwischen Model, View und Controller
+* Die Implementierungssprache für die gesamte Applikation ist Kotlin
+* Das UI ist mit Compose Desktop zu entwickeln
+* Verwendung von JDBC für die Datenbank-Zugriffe
+* Keine Verwendung von Libraries, die nicht bereits im Unterricht eingesetzt wurden
+
+
+=== Bewertung
+Es können in diesem Assignment maximal 4 Punkte erreicht werden. Der Fokus liegt dabei, neben der Umsetzung der gewünschten Funktionalität, auf der Code-Qualität. Die Qualität des Interaction-Designs wird über den _Power Tool Award_ berücksichtigt.
+
+* 4 Punkte
+** Umsetzung der gesamten gewünschten Funktionalität und der oben genannten Grundanforderungen
+** Strukturierung der App gemäss den Prinzipien des klassichen MVC
+** UI Code ist klar strukturiert via Composable Functions
+** TestCases für Controller und Repository (die DB-Zugriffs-Klassen)
+** Das Interaction-Design liegt in Form von Balsamiq-Wireframes vor
+* 1 Punkt
+** man kann sich einloggen
+** initial kann eine Spesenabrechnung in einem einfachen Editor erfasst und in einer lokalen Datenbank abgespeichert werden
+** diese Spesenabrechnung kann modifiziert/gespeichert oder gelöscht werden
+** falls die Spesenabrechnung gelöscht wurde, kann wieder eine neue Spesenabrechnung erfasst werden
+
+* 0 Punkte
+** falls die Kriterien für einen Punkt nicht erfüllt sind ;-)
+** falls das Projekt nicht kompilierfähig ist
+** falls die Applikation direkt beim Aufstarten abstürzt
+** für Plagiate
+
+IMPORTANT: Dieses Projekt verwendet Compose in Version 1.2.0 (bisher wurde im Unterricht 1.1.2 verwendet). Es ist eine bessere Stabilität und Funktionalität zu erwarten. Eventuell funktionieren einzelne Unterrichtsbeispiele jedoch nicht mehr vollständig. In Kürze werden wir auch im Unterricht auf Version 1.2.0 umstellen.
+
+
+=== Compose Desktop Application
+Sie können eine "doppelklickbare" Applikation und einen dazugehörigen Installer generieren lassen.
+
+Dazu in `src/main/kotlin/main.kt` die zu startende Applikation eintragen.
+
+* `./gradlew run` - startet die Applikation (ist die richtige Applikation eingetragen?)
+* `./gradlew packageDistributionForCurrentOS` - erzeugt eine doppelklickbare Applikation und einen Installer (siehe  `build/compose/binaries`)
